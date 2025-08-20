@@ -1,372 +1,471 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tony Haan Gebäudereinigung</title>
     <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/bootstrap.min.css" rel="stylesheet" />
     <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/all.min.css" />
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- Custom CSS -->
-    <style>
-        :root {
-            --primary-blue: #014379;
-            --secondary-blue: #0077b6;
-            --dark-gray: #333333;
-            --light-gray: #f8f9fa;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-        
-        /* Improved Navbar */
-        .navbar {
-            background-color: white;
-            padding: 0.5rem 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 1000;
-        }
-        
-        .navbar-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        
-        .navbar-brand {
-            width: 180px;
-            padding: 10px 0;
-            margin-left: 20px;
-        }
-        
-        .navbar-brand img {
-            width: 100%;
-            height: auto;
-            transition: transform 0.3s ease;
-        }
-        
-        .navbar-brand:hover img {
-            transform: scale(1.05);
-        }
-        
-        .nav-item {
-            margin: 0 10px;
-        }
-        
-        .nav-link {
-            color: var(--dark-gray) !important;
-            font-weight: 500;
-            position: relative;
-            padding: 10px 5px !important;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 5px;
-            left: 0;
-            background-color: var(--primary-blue);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .nav-link.active {
-            color: var(--primary-blue) !important;
-            font-weight: 600;
-        }
-        
-        .nav-link.active::after {
-            width: 100%;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background-image: url('assets/images/hero-image.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            position: relative;
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            margin-top: 0;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(1, 67, 121, 0.85) 0%, rgba(0, 119, 182, 0.8) 100%);
-            z-index: 1;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 0 40px;
-        }
-        
-        .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-            color: #ffffff;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-        
-        .hero p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-        }
-        
-        .cta-button {
-            background-color: white;
-            color: var(--primary-blue);
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            border: 2px solid white;
-        }
-        
-        .cta-button:hover {
-            background-color: transparent;
-            color: white;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.6rem;
-            }
-            
-            .navbar-brand {
-                width: 150px;
-                margin-left: 10px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero {
-                min-height: 70vh;
-                text-align: center;
-            }
-            
-            .hero-content {
-                padding: 0 20px;
-                text-align: center;
-            }
-            
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.3rem;
-            }
-            
-            .navbar {
-                padding: 0.5rem 1rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.5rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.1rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-        }
-    </style>
-</head>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <div class="container-fluid navbar-container">
-            <a class="navbar-brand" href="#">
-                <img src="assets/images/logo.png" alt="Tony Haan Logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">FAQ</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container-fluid navbar-container">
+      <a class="navbar-brand" href="#">
+        <img src="assets/images/logo.png" alt="Tony Haan Logo" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">FAQ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>TONY HAAN ENTRUMPELUNG & GEBAUDEREINIGUNG</h1>
-            <h2>WE OFFER THE BEST QUALITY SERVICES</h2>
-            <p>Your reliable partner for sustainable cleaning solutions. Environmentally friendly disposal with financial benefits. Fast, efficient service at your home or workplace.</p>
-            <a href="#" class="btn cta-button">GET A FREE QUOTE</a>
+  <!-- Hero Section -->
+  <section class="hero ">
+    <div class="hero-content">
+      <h1>TONY HAAN ENTRUMPELUNG & GEBAUDEREINIGUNG</h1>
+      <h2>WE OFFER THE BEST QUALITY SERVICES</h2>
+      <p>
+        Your reliable partner for sustainable cleaning solutions.
+        Environmentally friendly disposal with financial benefits. Fast,
+        efficient service at your home or workplace.
+      </p>
+      <a href="#" class="btn cta-button">GET IN TOUCH</a>
+    </div>
+  </section>
+
+  <!-- About Content Section -->
+  <section class="about-content scroll-section mt-4">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h2>About us</h2>
+          <p>
+            At Tony Haan Entrümpelung & Glass and Gebäudereinigung, we use
+            modern tools, professional equipment, and eco-friendly products to
+            deliver top-quality cleaning services. Our team of trained
+            professionals is dedicated to transforming your spaces into
+            pristine environments.
+          </p>
+          <p>
+            From deep sofa and carpet cleaning to high-reach window washing
+            and powerful facade restoration, our advanced methods ensure every
+            space is thoroughly cleaned and refreshed. We combine German
+            precision with innovative cleaning techniques to achieve
+            exceptional results.
+          </p>
+          <p>
+            We specialize in household clearances, scrap removal, and
+            decluttering with speed and care, making your environment cleaner,
+            safer, and more comfortable. Whether it's a residential property
+            or commercial space, we handle each project with the same level of
+            professionalism and attention to detail.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section scroll-section py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">
+        Why choose Tony Haan Entrümpelung & Glass<br />and Gebäudereinigung?
+      </h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100 text-center">
+            <div class="card-body">
+              <i class="fa-solid fa-broom fa-3x mb-3" style="color: #01426c"></i>
+              <h5 class="card-title">A Cleaner Environment</h5>
+              <p class="card-text">
+                We offer Cleaning Services! We customize our services to meet
+                your specific needs. Ask us about daily, weekly, and bi-weekly
+                service
+              </p>
+              <a
+                href="#"
+                class="learn-more collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#card1-text"
+                >Learn More</a
+              >
+              <div id="card1-text" class="collapse">
+                <p class="card-text mt-2">
+                  Additional details include eco-friendly cleaning solutions
+                  and flexible scheduling to fit your routine. Our team is
+                  trained to handle all types of cleaning challenges.
+                </p>
+                <a
+                  href="#"
+                  class="see-less mt-2"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#card1-text"
+                  >See Less</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 text-center">
+            <div class="card-body">
+              <i
+                class="fa-solid fa-trash-alt fa-3x mb-3"
+                style="color: #01426c"
+              ></i>
+              <h5 class="card-title">What We Offer</h5>
+              <p class="card-text">
+                Treppenhausreinigung services Bauschlussreinigung services
+                Entrümpelung von Firma und Privat Services Glasreinigung
+                Services Fassadenreinigung Services Sofareinigung Services
+              </p>
+              <a
+                href="#"
+                class="learn-more collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#card2-text"
+                >Learn More</a
+              >
+              <div id="card2-text" class="collapse">
+                <p class="card-text mt-2">
+                  We provide comprehensive disposal and cleaning options,
+                  including specialized services for commercial and
+                  residential properties. Contact us for tailored solutions.
+                </p>
+                <a
+                  href="#"
+                  class="see-less mt-2"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#card2-text"
+                  >See Less</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 text-center">
+            <div class="card-body">
+              <i
+                class="fa-solid fa-window-maximize fa-3x mb-3"
+                style="color: #01426c"
+              ></i>
+              <h5 class="card-title">Your Business Is Ours</h5>
+              <p class="card-text">
+                We promise quality, reliable cleaning service every time so
+                our loyal customers feel special. We work hard to be the best.
+                Our products are high-quality and safe. And we focus on the
+                details, so you have a clean, orderly office every time.
+              </p>
+              <a
+                href="#"
+                class="learn-more collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#card3-text"
+                >Learn More</a
+              >
+              <div id="card3-text" class="collapse">
+                <p class="card-text mt-2">
+                  Our commitment includes regular maintenance plans and
+                  eco-conscious products to ensure a healthy workspace. We
+                  prioritize customer satisfaction with every visit.
+                </p>
+                <a
+                  href="#"
+                  class="see-less mt-2"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#card3-text"
+                  >See Less</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 5 Section -->
+  <section class="page-5 scroll-section py-5">
+    <div class="container">
+      <div class="row align-items-center flex-row-reverse">
+        <div class="col-md-6">
+          <h2
+            class="text-left mb-4"
+            style="color: #01426c; text-transform: uppercase"
+          >
+            ‘‘Declutter with Ease, Clear with Purpose”
+          </h2>
+          <p class="text-left" style="color: #6c757d">
+            From weekly touch-ups to intensive deep cleans, our
+            Treppenhausreinigung service keeps stairwells spotless, safe, and
+            welcoming. Whether it’s dust, dirt, scuff marks, or built-up grime
+            — we sweep, scrub, and polish every corner, ensuring your
+            building’s first impression shines for residents and visitors
+            alike.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="assets/images/image 387.png"
+            alt="Expert Team"
+            class="img-fluid w-100"
+            style="border-radius: 10px"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 4 Section -->
+  <section class="page-4 scroll-section py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h2
+            class="text-left mb-4"
+            style="color: #01426c; text-transform: uppercase"
+          >
+            ‘‘From Floor to Roof, We Clean with Proof”
+          </h2>
+          <p class="text-left" style="color: #6c757d">
+            Whether it’s a cozy home or a corporate facility, our building
+            cleaning service delivers spotless results from the inside out. We
+            handle dust, dirt, stains, and grime with precision — offering
+            flexible cleaning plans tailored to your schedule. For homes,
+            offices, or entire complexes, we bring the shine that shows you
+            mean business.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="assets/images/Rectangle 46.jpg"
+            alt="Cleaning Service"
+            class="img-fluid w-100"
+            style="border-radius: 10px"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+   <!-- Booking Section -->
+   
+    <section class="booking-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center heading-col">
+                    <h2 class="booking-heading">OUR JOURNEY WITH YOU BEGINS TODAY!</h2>
+                </div>
+                
+                <div  class="col-12  content-col">
+                    
+                    <div class="cards-container">
+                        <div class="booking-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Deliver High-Quality Service</h5>
+                                <p class="card-text">
+                                    At Tony Haan, we uphold the highest standards of quality and reliability in every cleaning task. This includes maintaining a professional appearance, utilizing state-of-the-art tools, paying meticulous attention to detail, and consistently exceeding customer expectations to ensure complete satisfaction.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="booking-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Build Trust and Relationships</h5>
+                                <p class="card-text">
+                                    We foster long-term relationships through dependable service, transparent communication, and consistent results. Our commitment to excellence helps create repeat business and generates valuable referrals, building a trusted partnership with every client we serve.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="booking-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Sustainable Practices</h5>
+                                <p class="card-text">
+                                    Sustainability is at our core, as we incorporate eco-friendly methods and materials into every job. This includes using green cleaning products, adopting energy-efficient practices, and minimizing our environmental footprint to support a healthier planet for all.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile layout - carousel -->
+                    <div class="carousel-container">
+                        <div class="carousel-track">
+                            <div class="carousel-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Deliver High-Quality Service</h5>
+                                    <p class="card-text">
+                                        At Tony Haan, we uphold the highest standards of quality and reliability in every cleaning task. This includes maintaining a professional appearance, utilizing state-of-the-art tools, paying meticulous attention to detail, and consistently exceeding customer expectations to ensure complete satisfaction.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="carousel-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Build Trust and Relationships</h5>
+                                    <p class="card-text">
+                                        We foster long-term relationships through dependable service, transparent communication, and consistent results. Our commitment to excellence helps create repeat business and generates valuable referrals, building a trusted partnership with every client we serve.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="carousel-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Sustainable Practices</h5>
+                                    <p class="card-text">
+                                        Sustainability is at our core, as we incorporate eco-friendly methods and materials into every job. This includes using green cleaning products, adopting energy-efficient practices, and minimizing our environmental footprint to support a healthier planet for all.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-nav">
+                            <span class="carousel-dot active" data-index="0"></span>
+                            <span class="carousel-dot" data-index="1"></span>
+                            <span class="carousel-dot" data-index="2"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="booking-btn-container">
+                        <a href="#" class="btn booking-btn">BOOK US NOW!!!</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Bootstrap JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Navbar background change on scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-            } else {
-                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            }
-        });
-    </script>
+
+
+
+
+
+     <section class="contact-section scroll-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="decoration decoration-1">CONTACT</div>
+                <h2 class="section-title">CONTACT US NOW</h2>
+                <h3 class="section-subtitle">WE ARE VERY PLEASED TO WORK WITH YOU</h3>
+                <p class="contact-desc">We are your professional contact in Wesel and Essen. If you have any questions or comments, you can use the contact form or visit FAQ page for more information.</p>
+                
+                <div class="contact-actions">
+                    <a href="#" class="btn btn-faq">FAQ PAGE</a>
+                    <a href="#" class="btn btn-message">SEND MESSAGE NOW</a>
+                </div>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+49 123 456 789</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>info@company.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Wesel and Essen, Germany</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <div class="decoration decoration-2">MESSAGE</div>
+                <h3 class="form-title">Send us a message</h3>
+                
+                <form>
+                    <div class="form-group">
+                        <label for="email">Enter your Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="example@gmail.com...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" class="form-control" rows="5" placeholder="Type your message here..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class=" booking-btn">SEND</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+  <!-- Font Awesome CDN for icons -->
+  <script
+    src="https://kit.fontawesome.com/a076d05399.js"
+    crossorigin="anonymous"
+  ></script>
+  <!-- Ensure Bootstrap JS is included for collapse functionality -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
-
-<section class="services-section py-5 bg-light">
-  <div class="container">
-    <!-- Section Header -->
-    <div class="text-center mb-5">
-      <h2 class="text-uppercase fw-bold">Why choose Tony Haan Entrümpelung & Glass<br>and Gebäudereinigung?</h2>
-      <p class="lead">A Cleaner Environment</p>
-      <p class="text-muted">We offer Cleaning Services! We customize our services to meet your specific needs. Ask us about daily, weekly, and bi-weekly service.</p>
-    </div>
-
-    <!-- Services Grid -->
-    <div class="row g-4">
-      <!-- Commercial Cleaning Card -->
-      <div class="col-md-6">
-        <div class="card h-100 border-0 shadow-sm">
-          <div class="card-body p-4">
-            <h3 class="h4 fw-bold text-primary">Commercial Cleaning Services</h3>
-            <p class="fw-medium">Some of our services include:</p>
-            <ul class="list-unstyled">
-              <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Treppenhausreinigung services</li>
-              <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Beuschlussreinigung services</li>
-              <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Entrümpelung von Firma und Privat Services</li>
-              <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Oltstreinigung Services</li>
-              <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Fassadenreinigung Services</li>
-              <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Sofareinigung Services</li>
-            </ul>
-            <a href="#" class="btn btn-link text-primary ps-0">Learn more <i class="fas fa-arrow-right ms-2"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Business Promise Card -->
-      <div class="col-md-6">
-        <div class="card h-100 border-0 shadow-sm">
-          <div class="card-body p-4">
-            <h3 class="h4 fw-bold text-primary">Your Business is ours</h3>
-            <p>We promise quality, reliable cleaning services every time so our loyal customers feel special; We work hard to be the best. Our products are high-quality and safe. And we focus on the details, so you have a clean, orderly office every time.</p>
-            <a href="#" class="btn btn-link text-primary ps-0">Learn more <i class="fas fa-arrow-right ms-2"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-.services-section {
-  position: relative;
-  z-index: 2;
-}
-
-.services-section .card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 8px;
-}
-
-.services-section .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
-}
-
-.services-section .btn-link {
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.services-section .btn-link:hover {
-  transform: translateX(5px);
-}
-
-.services-section .btn-link i {
-  transition: transform 0.3s ease;
-}
-
-.services-section .btn-link:hover i {
-  transform: translateX(3px);
-}
