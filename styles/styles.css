@@ -659,7 +659,8 @@ body {
   background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
+  overflow: hidden; 
+  position: relative;
 }
 
 .contact-container {
@@ -680,6 +681,8 @@ body {
   min-width: 300px;
   padding: 50px;
   background: white;
+  position: relative; /* Ensure form is in a new stacking context */
+  z-index: 10; /* Higher than decoration's z-index of 0 */
 }
 
 .section-title {
@@ -767,6 +770,8 @@ body {
   border-radius: 10px;
   font-size: 1rem;
   transition: all 0.3s ease;
+  position: relative; /* Ensure inputs are above decorations */
+  z-index: 20; /* Higher than contact-form z-index */
 }
 
 .form-control:focus {
@@ -862,18 +867,18 @@ body {
   opacity: 0.05;
   font-size: 15rem;
   font-weight: 800;
-  z-index: 0;
+  z-index: 0; 
 }
 
 .decoration-1 {
-  bottom: -80px;
-  right: -50px;
+  bottom: -120px; /* Move further down */
+  right: -100px; /* Move further right */
   color: white;
 }
 
 .decoration-2 {
-  top: -80px;
-  left: -50px;
+  top: -120px; /* Move further up */
+  left: -100px; /* Move further left */
   color: #3498db;
 }
 
@@ -902,9 +907,6 @@ body {
   overflow: auto;
 }
 
-.footer-col {
-  padding: 0 10px;
-}
 
 .footer-col h4 {
   font-size: 16px;
