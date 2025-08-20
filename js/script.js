@@ -19,7 +19,7 @@ window.addEventListener("scroll", function () {
   }
 });
 
-alert('HELLO')
+
 const scrollSections = document.querySelectorAll(".scroll-section")
 
 window.addEventListener("scroll", () => {
