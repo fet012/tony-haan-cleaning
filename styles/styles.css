@@ -904,13 +904,13 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   flex: 1;
-  background-color: red;
+  /* background-color: red; */
   overflow: auto;
 }
 
-.footer-col{
+/* .footer-col{
   background-color: green;
-}
+} */
 .footer-col h4 {
   font-size: 16px;
   margin-bottom: 15px;
