@@ -1,3 +1,6 @@
+/* ===========================
+   Root Variables & Base Styles
+   =========================== */
 :root {
   --primary-blue: #014379;
   --secondary-blue: #0077b6;
@@ -12,6 +15,9 @@ body {
   overflow-x: hidden;
 }
 
+/* ===========================
+   Scroll Animation
+   =========================== */
 .scroll-section {
   opacity: 0 !important;
   transform: translateY(350px) !important;
@@ -21,6 +27,10 @@ body {
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
+
+/* ===========================
+   Navbar
+   =========================== */
 .navbar {
   background-color: white;
   padding: 0.5rem 2rem;
@@ -87,7 +97,9 @@ body {
   width: 100%;
 }
 
-/* Hero Section */
+/* ===========================
+   Hero Section
+   =========================== */
 .hero {
   background-image: url("../assets/images/hero-image.jpg");
   background-size: cover;
@@ -164,7 +176,9 @@ body {
   border: 2px solid rgb(255, 255, 255) !important;
 }
 
-/* About Content Section */
+/* ===========================
+   About Section
+   =========================== */
 .about-content {
   padding: var(--section-padding);
   background-color: white;
@@ -193,7 +207,9 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* Features Section */
+/* ===========================
+   Features Section
+   =========================== */
 .features {
   padding: var(--section-padding);
   background-color: var(--light-gray);
@@ -218,7 +234,9 @@ body {
   margin-bottom: 1rem;
 }
 
-/* CTA Section */
+/* ===========================
+   CTA Section
+   =========================== */
 .cta-section {
   background: var(--primary-blue);
   color: white;
@@ -239,7 +257,9 @@ body {
   margin-top: 1rem;
 }
 
-/* Responsive Adjustments */
+/* ===========================
+   Responsive Adjustments
+   =========================== */
 @media (max-width: 992px) {
   .about-hero h1 {
     font-size: 2.5rem;
@@ -268,7 +288,9 @@ body {
   }
 }
 
-/* Responsive adjustments */
+/* ===========================
+   Hero Responsive Adjustments
+   =========================== */
 @media (max-width: 992px) {
   .hero h1 {
     font-size: 2.2rem;
@@ -327,6 +349,11 @@ body {
     font-size: 1rem;
   }
 }
+
+
+/* ===========================
+   Services Section
+   =========================== */
 .services-section {
   padding: 60px 0;
   background-color: #f8f9fa;
@@ -390,7 +417,10 @@ body {
 .collapse.show ~ .learn-more.collapsed {
   display: none !important;
 }
-/* Responsive adjustments */
+
+/* ===========================
+   Services Responsive Adjustments
+   =========================== */
 @media (max-width: 768px) {
   .services-section h2 {
     font-size: 1.5rem;
@@ -414,6 +444,10 @@ body {
     font-size: 2.5rem;
   }
 }
+
+/* ===========================
+   Page 4 & Page 5 Sections
+   =========================== */
 .page-5 {
   background-color: #f8f9fa;
 }
@@ -459,6 +493,8 @@ body {
     padding: 40px 0;
   }
 }
+
+
 
 .booking-section {
   height: 50vh;
@@ -681,8 +717,8 @@ body {
   min-width: 300px;
   padding: 50px;
   background: white;
-  position: relative; /* Ensure form is in a new stacking context */
-  z-index: 10; /* Higher than decoration's z-index of 0 */
+  position: relative;
+  z-index: 10;
 }
 
 .section-title {
@@ -770,8 +806,8 @@ body {
   border-radius: 10px;
   font-size: 1rem;
   transition: all 0.3s ease;
-  position: relative; /* Ensure inputs are above decorations */
-  z-index: 20; /* Higher than contact-form z-index */
+  position: relative;
+  z-index: 20; 
 }
 
 .form-control:focus {
@@ -871,14 +907,14 @@ body {
 }
 
 .decoration-1 {
-  bottom: -120px; /* Move further down */
-  right: -100px; /* Move further right */
+  bottom: -120px; 
+  right: -100px; 
   color: white;
 }
 
 .decoration-2 {
-  top: -120px; /* Move further up */
-  left: -100px; /* Move further left */
+  top: -120px; 
+  left: -100px; 
   color: #3498db;
 }
 
@@ -890,7 +926,7 @@ body {
 .compact-footer {
   background: linear-gradient(to right, #2d4459, #014379);
   color: #fff;
-  height: 40vh; /* 40% of viewport height */
+  height: 40vh; 
   min-height: 350px;
   display: flex;
   flex-direction: column;
@@ -904,13 +940,10 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   flex: 1;
-  /* background-color: red; */
+
   overflow: auto;
 }
 
-/* .footer-col{
-  background-color: green;
-} */
 .footer-col h4 {
   font-size: 16px;
   margin-bottom: 15px;
