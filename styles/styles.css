@@ -350,7 +350,6 @@ body {
   }
 }
 
-
 /* ===========================
    Services Section
    =========================== */
@@ -493,8 +492,6 @@ body {
     padding: 40px 0;
   }
 }
-
-
 
 .booking-section {
   height: 50vh;
@@ -807,7 +804,7 @@ body {
   font-size: 1rem;
   transition: all 0.3s ease;
   position: relative;
-  z-index: 20; 
+  z-index: 20;
 }
 
 .form-control:focus {
@@ -907,14 +904,14 @@ body {
 }
 
 .decoration-1 {
-  bottom: -120px; 
-  right: -100px; 
+  bottom: -120px;
+  right: -100px;
   color: white;
 }
 
 .decoration-2 {
-  top: -120px; 
-  left: -100px; 
+  top: -120px;
+  left: -100px;
   color: #3498db;
 }
 
@@ -926,7 +923,7 @@ body {
 .compact-footer {
   background: linear-gradient(to right, #2d4459, #014379);
   color: #fff;
-  height: 40vh; 
+  height: 40vh;
   min-height: 350px;
   display: flex;
   flex-direction: column;
@@ -1123,12 +1120,6 @@ body {
   background: rgba(52, 152, 219, 0.7);
 }
 
-
-
-
-
-
-
 .cleaning-section {
   max-width: 1200px;
   margin: 40px auto;
@@ -1272,4 +1263,39 @@ body {
   padding: 25px;
   margin-top: 40px;
   border-radius: 8px;
+}
+/* About Hero Section */
+.contact-hero{
+  background: linear-gradient(rgba(1, 67, 121, 0.85), rgba(1, 67, 121, 0.85)),
+    url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.contact-hero-content {
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+.contact-hero h1 {
+  font-size: 4.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  letter-spacing: 3px;
+}
+
+.contact-hero p {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
 }
