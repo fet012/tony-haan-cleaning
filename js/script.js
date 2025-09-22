@@ -39,28 +39,28 @@ window.addEventListener("scroll", () => {
 
 document.addEventListener("DOMContentLoaded", function () {
   // FAQ data
-  const faqData = [
+const faqData = [
     {
-      question: "What types of services does Tony Haan Dienstleistungen offer?",
-      answer:
-        "Tony Haan entrumpelung Sgtass und Gebaudereinigung specializes in a wide range of services, including property maintenance, cleaning, landscaping, and minor repairs. Whether you're looking for regular upkeep or a one-time service, they cater to both residential and commercial clients.",
+        question: "Welche Arten von Dienstleistungen bietet Tony Haan Dienstleistungen an?",
+        answer:
+            "Tony Haan Entrümpelung & Gebäudereinigung ist spezialisiert auf ein breites Spektrum von Dienstleistungen, einschließlich Immobilienwartung, Reinigung, Landschaftsgestaltung und kleineren Reparaturen. Egal, ob Sie regelmäßige Instandhaltung oder eine einmalige Dienstleistung suchen, wir bedienen sowohl private als auch gewerbliche Kunden.",
     },
     {
-      question: "How quickly can you respond to service requests?",
-      answer:
-        "We prioritize all service requests and typically respond within 24 hours. For emergency situations, we offer same-day service to address urgent maintenance and cleaning needs for our valued clients.",
+        question: "Wie schnell können Sie auf Serviceanfragen reagieren?",
+        answer:
+            "Wir priorisieren alle Serviceanfragen und reagieren in der Regel innerhalb von 24 Stunden. Für Notfallsituationen bieten wir einen Same-Day-Service an, um dringende Wartungs- und Reinigungsbedürfnisse unserer geschätzten Kunden zu erfüllen.",
     },
     {
-      question: "Do you provide eco-friendly cleaning options?",
-      answer:
-        "Yes, we are committed to environmental sustainability. We offer eco-friendly cleaning products and methods that are safe for your family, pets, and the environment while still delivering exceptional cleaning results.",
+        question: "Bieten Sie umweltfreundliche Reinigungsoptionen an?",
+        answer:
+            "Ja, wir sind der ökologischen Nachhaltigkeit verpflichtet. Wir bieten umweltfreundliche Reinigungsprodukte und -methoden an, die sicher für Ihre Familie, Haustiere und die Umwelt sind und dennoch außergewöhnliche Reinigungsergebnisse liefern.",
     },
     {
-      question: "Are your staff members trained and insured?",
-      answer:
-        "Absolutely. All our team members undergo thorough background checks, comprehensive training, and are fully insured. We ensure professionalism, expertise, and reliability in every service we provide.",
+        question: "Sind Ihre Mitarbeiter geschult und versichert?",
+        answer:
+            "Absolut. Alle unsere Teammitglieder durchlaufen gründliche Hintergrundüberprüfungen, umfassende Schulungen und sind voll versichert. Wir gewährleisten Professionalität, Expertise und Zuverlässigkeit in jeder Dienstleistung, die wir erbringen.",
     },
-  ];
+];
 
   const faqCard = document.querySelector(".faq-card");
   const prevBtn = document.querySelector(".prev-btn");
