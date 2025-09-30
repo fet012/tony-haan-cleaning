@@ -121,7 +121,7 @@
               </div>
               <div>
                 <h4>E-Mail senden</h4>
-                <p>tonyhaanreingung@gmail.com</p>
+                <p>tonyhaangebaudereinig@gmail.com</p>
               </div>
             </div>
 
@@ -290,7 +290,7 @@
               <div class="contact-icon">
                 <i class="fas fa-envelope"></i>
               </div>
-              <div class="contact-text">tonyhaanreingung@gmail.com</div>
+              <div class="contact-text">tonyhaangebaudereinig@gmail.com</div>
             </div>
           </div>
 
@@ -315,61 +315,69 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- <script src="js/script.js"></script> -->
-    <script>
-      // Wait for DOM to be fully loaded
-      document.addEventListener("DOMContentLoaded", function () {
-        // Initialize EmailJS
-        emailjs.init("EGPU9gXFGib7U38cs");
+    
+   <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Initialize EmailJS
+    emailjs.init("EGPU9gXFGib7U38cs");
+    console.log("EmailJS initialized");
 
-        // Get the form element
-        const contactForm = document.getElementById("contactForm");
+    const contactForm = document.getElementById("contactForm");
 
-        if (contactForm) {
-          contactForm.addEventListener("submit", function (e) {
-            e.preventDefault();
+    if (contactForm) {
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-            const submitBtn = document.getElementById("submitBtn");
-            const btnText = document.getElementById("btnText");
-            const btnSpinner = document.getElementById("btnSpinner");
-            const formMessage = document.getElementById("formMessage");
+        const submitBtn = document.getElementById("submitBtn");
+        const btnText = document.getElementById("btnText");
+        const btnSpinner = document.getElementById("btnSpinner");
+        const formMessage = document.getElementById("formMessage");
 
-            // Show loading state
-            btnText.textContent = "Wird gesendet...";
-            btnSpinner.classList.remove("d-none");
-            submitBtn.disabled = true;
-            formMessage.classList.add("d-none");
+        // Show loading state
+        btnText.textContent = "Wird gesendet...";
+        btnSpinner.classList.remove("d-none");
+        submitBtn.disabled = true;
+        formMessage.classList.add("d-none");
 
-            // Send email using EmailJS
-            emailjs
-              .sendForm("service_rm0unxw", "template_0cgtjno", this)
-              .then(
-                function (response) {
-                  console.log("SUCCESS!", response.status, response.text);
-                  formMessage.textContent =
-                    "Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.";
-                  formMessage.classList.remove("alert-danger", "d-none");
-                  formMessage.classList.add("alert-success");
-                  this.reset();
-                }.bind(this),
-                function (error) {
-                  console.log("FAILED...", error);
-                  formMessage.textContent =
-                    "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.";
-                  formMessage.classList.remove("alert-success", "d-none");
-                  formMessage.classList.add("alert-danger");
-                }
-              )
-              .finally(function () {
-                btnText.textContent = "NACHRICHT SENDEN";
-                btnSpinner.classList.add("d-none");
-                submitBtn.disabled = false;
-              });
+        // Log form data for debugging
+        const formData = new FormData(this);
+        console.log("Form data:", Object.fromEntries(formData));
+
+        // Send email using EmailJS
+        emailjs.sendForm("service_3y5r2a9", "template_0cgtjno", this)
+          .then(
+            function (response) {
+              console.log("SUCCESS!", response);
+              formMessage.textContent = "Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.";
+              formMessage.classList.remove("alert-danger", "d-none");
+              formMessage.classList.add("alert-success");
+              this.reset();
+            }.bind(this),
+            function (error) {
+              console.log("FAILED...", error);
+              console.log("Error details:", error.text, error.status);
+              
+              // More specific error messages
+              if (error.text.includes("Invalid template")) {
+                formMessage.textContent = "Template-Fehler. Bitte kontaktieren Sie den Support.";
+              } else if (error.text.includes("Invalid service")) {
+                formMessage.textContent = "Service-Fehler. Bitte kontaktieren Sie den Support.";
+              } else {
+                formMessage.textContent = "Nachricht konnte nicht gesendet werden. Fehler: " + error.text;
+              }
+              
+              formMessage.classList.remove("alert-success", "d-none");
+              formMessage.classList.add("alert-danger");
+            }
+          )
+          .finally(function () {
+            btnText.textContent = "NACHRICHT SENDEN";
+            btnSpinner.classList.add("d-none");
+            submitBtn.disabled = false;
           });
-        } else {
-          console.error("Contact form not found!");
-        }
       });
-    </script>
+    }
+  });
+</script>
   </body>
 </html>
