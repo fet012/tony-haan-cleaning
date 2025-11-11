@@ -16,7 +16,7 @@ body {
 /* About Hero Section */
 .about-hero {
   background: linear-gradient(rgba(1, 67, 121, 0.85), rgba(1, 67, 121, 0.85)),
-    url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80");
+    url("/assets/images/about-us.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;
