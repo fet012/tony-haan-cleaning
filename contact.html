@@ -22,7 +22,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
     <!-- Navbar -->
@@ -85,7 +88,7 @@
     </section>
 
     <!-- CONTACT SECTION -->
-    
+
     <section class="contact-section">
       <div class="contact-container">
         <div class="contact-info">
@@ -101,7 +104,9 @@
 
           <div class="contact-actions">
             <a href="about.html" class="btn btn-faq">FAQ SEITE</a>
-            <a href="#contactForm" class="btn btn-message">JETZT NACHRICHT SENDEN</a>
+            <a href="#contactForm" class="btn btn-message"
+              >JETZT NACHRICHT SENDEN</a
+            >
           </div>
 
           <div class="contact-methods">
@@ -140,7 +145,7 @@
             <div class="decoration decoration-2">MESSAGE</div>
             <h3 class="form-title">Senden Sie uns eine Nachricht</h3>
 
-            <form id="contactForm" >
+            <!-- <form id="contactForm" >
               <div class="form-group">
                 <label for="name">Ihr Name *</label>
                 <input
@@ -217,6 +222,90 @@
               </button>
 
               <div id="formMessage" class="alert mt-3 d-none"></div>
+            </form> -->
+
+            <!-- Your existing form structure remains the same, just update the form tag -->
+            <form
+              id="contactForm"
+              action="https://formspree.io/f/xyzlwnlo"
+              method="POST"
+            >
+              <div class="form-group">
+                <label for="name">Ihr Name *</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-control"
+                  placeholder="Ihr vollständiger Name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Ihre E-Mail-Adresse *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="beispiel@gmail.com"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Telefonnummer</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="form-control"
+                  placeholder="+49 123 456 789"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Betreff *</label>
+                <select
+                  id="subject"
+                  name="subject"
+                  class="form-control"
+                  required
+                >
+                  <option value="">Bitte wählen Sie</option>
+                  <option value="general">Allgemeine Anfrage</option>
+                  <option value="quote">Angebot anfordern</option>
+                  <option value="service">Dienstleistungsanfrage</option>
+                  <option value="complaint">Beschwerde</option>
+                  <option value="other">Sonstiges</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Ihre Nachricht *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-control"
+                  rows="5"
+                  placeholder="Geben Sie hier Ihre Nachricht ein..."
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="booking-btn" id="submitBtn">
+                <span id="btnText">NACHRICHT SENDEN</span>
+                <div
+                  id="btnSpinner"
+                  class="spinner-border spinner-border-sm d-none"
+                  role="status"
+                >
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </button>
+
+              <div id="formMessage" class="alert mt-3 d-none"></div>
             </form>
           </div>
         </div>
@@ -224,7 +313,7 @@
     </section>
 
     <!-- FOOTER -->
-     <footer class="compact-footer">
+    <footer class="compact-footer">
       <div class="footer-container">
         <div class="footer-col">
           <h4>PAGES</h4>
@@ -315,69 +404,145 @@
       crossorigin="anonymous"
     ></script>
 
-    
-   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Initialize EmailJS
-    emailjs.init("EGPU9gXFGib7U38cs");
-    console.log("EmailJS initialized");
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize EmailJS
+        emailjs.init("EGPU9gXFGib7U38cs");
+        console.log("EmailJS initialized");
 
-    const contactForm = document.getElementById("contactForm");
+        const contactForm = document.getElementById("contactForm");
 
-    if (contactForm) {
-      contactForm.addEventListener("submit", function (e) {
-        e.preventDefault();
+        if (contactForm) {
+          contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
 
-        const submitBtn = document.getElementById("submitBtn");
-        const btnText = document.getElementById("btnText");
-        const btnSpinner = document.getElementById("btnSpinner");
-        const formMessage = document.getElementById("formMessage");
+            const submitBtn = document.getElementById("submitBtn");
+            const btnText = document.getElementById("btnText");
+            const btnSpinner = document.getElementById("btnSpinner");
+            const formMessage = document.getElementById("formMessage");
 
-        // Show loading state
-        btnText.textContent = "Wird gesendet...";
-        btnSpinner.classList.remove("d-none");
-        submitBtn.disabled = true;
-        formMessage.classList.add("d-none");
+            // Show loading state
+            btnText.textContent = "Wird gesendet...";
+            btnSpinner.classList.remove("d-none");
+            submitBtn.disabled = true;
+            formMessage.classList.add("d-none");
 
-        // Log form data for debugging
-        const formData = new FormData(this);
-        console.log("Form data:", Object.fromEntries(formData));
+            // Log form data for debugging
+            const formData = new FormData(this);
+            console.log("Form data:", Object.fromEntries(formData));
 
-        // Send email using EmailJS
-        emailjs.sendForm("service_3y5r2a9", "template_0cgtjno", this)
-          .then(
-            function (response) {
-              console.log("SUCCESS!", response);
-              formMessage.textContent = "Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.";
-              formMessage.classList.remove("alert-danger", "d-none");
-              formMessage.classList.add("alert-success");
-              this.reset();
-            }.bind(this),
-            function (error) {
-              console.log("FAILED...", error);
-              console.log("Error details:", error.text, error.status);
-              
-              // More specific error messages
-              if (error.text.includes("Invalid template")) {
-                formMessage.textContent = "Template-Fehler. Bitte kontaktieren Sie den Support.";
-              } else if (error.text.includes("Invalid service")) {
-                formMessage.textContent = "Service-Fehler. Bitte kontaktieren Sie den Support.";
+            // Send email using EmailJS
+            emailjs
+              .sendForm("service_3y5r2a9", "template_0cgtjno", this)
+              .then(
+                function (response) {
+                  console.log("SUCCESS!", response);
+                  formMessage.textContent =
+                    "Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.";
+                  formMessage.classList.remove("alert-danger", "d-none");
+                  formMessage.classList.add("alert-success");
+                  this.reset();
+                }.bind(this),
+                function (error) {
+                  console.log("FAILED...", error);
+                  console.log("Error details:", error.text, error.status);
+
+                  // More specific error messages
+                  if (error.text.includes("Invalid template")) {
+                    formMessage.textContent =
+                      "Template-Fehler. Bitte kontaktieren Sie den Support.";
+                  } else if (error.text.includes("Invalid service")) {
+                    formMessage.textContent =
+                      "Service-Fehler. Bitte kontaktieren Sie den Support.";
+                  } else {
+                    formMessage.textContent =
+                      "Nachricht konnte nicht gesendet werden. Fehler: " +
+                      error.text;
+                  }
+
+                  formMessage.classList.remove("alert-success", "d-none");
+                  formMessage.classList.add("alert-danger");
+                }
+              )
+              .finally(function () {
+                btnText.textContent = "NACHRICHT SENDEN";
+                btnSpinner.classList.add("d-none");
+                submitBtn.disabled = false;
+              });
+          });
+        }
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactForm = document.getElementById("contactForm");
+
+        if (contactForm) {
+          contactForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById("submitBtn");
+            const btnText = document.getElementById("btnText");
+            const btnSpinner = document.getElementById("btnSpinner");
+            const formMessage = document.getElementById("formMessage");
+
+            // Show loading state
+            btnText.textContent = "Wird gesendet...";
+            btnSpinner.classList.remove("d-none");
+            submitBtn.disabled = true;
+            formMessage.classList.add("d-none");
+
+            try {
+              const formData = new FormData(this);
+
+              // Send to Formspree
+              const response = await fetch(this.action, {
+                method: "POST",
+                body: formData,
+                headers: {
+                  Accept: "application/json",
+                },
+              });
+
+              if (response.ok) {
+                // Success
+                formMessage.textContent =
+                  "Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.";
+                formMessage.classList.remove("alert-danger", "d-none");
+                formMessage.classList.add("alert-success");
+                this.reset();
               } else {
-                formMessage.textContent = "Nachricht konnte nicht gesendet werden. Fehler: " + error.text;
+                // Error from Formspree
+                const errorData = await response.json();
+                throw new Error(errorData.error || "Unknown error occurred");
               }
-              
+            } catch (error) {
+              console.log("Form submission error:", error);
+
+              // User-friendly error messages
+              if (
+                error.message.includes("Timeout") ||
+                error.message.includes("network")
+              ) {
+                formMessage.textContent =
+                  "Netzwerkfehler. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.";
+              } else {
+                formMessage.textContent =
+                  "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.";
+              }
+
               formMessage.classList.remove("alert-success", "d-none");
               formMessage.classList.add("alert-danger");
+            } finally {
+              // Reset button state
+              btnText.textContent = "NACHRICHT SENDEN";
+              btnSpinner.classList.add("d-none");
+              submitBtn.disabled = false;
             }
-          )
-          .finally(function () {
-            btnText.textContent = "NACHRICHT SENDEN";
-            btnSpinner.classList.add("d-none");
-            submitBtn.disabled = false;
           });
+        }
       });
-    }
-  });
-</script>
+    </script>
   </body>
 </html>
